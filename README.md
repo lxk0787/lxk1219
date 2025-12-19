@@ -131,9 +131,10 @@ MIT License
 ## 📧 联系方式
 
 如有问题或建议，请通过以下方式联系：
-- Email: example@whu.edu.cn
-- GitHub: https://github.com/yourusername/luojia-explorer
+- Email: 1497119634@qq.com
+- GitHub: [https://github.com/yourusername/luojia-explorer](https://github.com/lxk0787)
 
 ---
 
 **珞珈探秘·校园团建定向助手** - 让校园定向越野更专业、更有趣！ 🌸
+
