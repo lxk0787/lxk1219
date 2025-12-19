@@ -5,7 +5,7 @@ class LuojiaExplorer:
     def __init__(self):
         self.base_url = "https://nominatim.openstreetmap.org"
         self.wuhan_university_boundary = {
-            "center": "30.596069,114.297691",  # 武汉大学精确中心坐标
+            "center": "30.5390,114.3576",  # 武汉大学精确中心坐标
             "radius": 5000  # 覆盖整个武大校园的半径
         }
     
@@ -28,8 +28,8 @@ class LuojiaExplorer:
             # 对于操场等具体地点，直接检查是否在武大坐标范围内
             lat = float(result[0]["lat"])
             lon = float(result[0]["lon"])
-            # 武大校园大致范围：纬度30.580-30.610，经度114.280-114.310（精确范围）
-            if 30.580 <= lat <= 30.610 and 114.280 <= lon <= 114.310:
+            # 武大校园大致范围：纬度30.520-30.560，经度114.340-114.370（精确范围）
+            if 30.520 <= lat <= 30.560 and 114.340 <= lon <= 114.370:
                 return True, {"lat": lat, "lng": lon}
         return False, None
     
@@ -114,7 +114,7 @@ class LuojiaExplorer:
             {
                 "name": "CP1-信息学部操场",
                 "code": "1",
-                "location": {"lat": 30.5850, "lng": 114.3050},
+                "location": {"lat": 30.5300, "lng": 114.3557},
                 "address": "武汉大学信息学部",
                 "elevation": 30,
                 "difficulty": 1
@@ -122,73 +122,73 @@ class LuojiaExplorer:
             {
                 "name": "CP2-文理学部操场",
                 "code": "2",
-                "location": {"lat": 30.5885, "lng": 114.2990},
+                "location": {"lat": 30.5370, "lng": 114.3600},
                 "address": "武汉大学文理学部",
                 "elevation": 28,
                 "difficulty": 1
             },
             {
-                "name": "CP3-樱花大道",
+                "name": "CP3-万林艺术博物馆",
                 "code": "3",
-                "location": {"lat": 30.5900, "lng": 114.3020},
-                "address": "武汉大学文理学部",
-                "elevation": 45,
-                "difficulty": 2
-            },
-            {
-                "name": "CP4-老图书馆",
-                "code": "4",
-                "location": {"lat": 30.5910, "lng": 114.3000},
-                "address": "武汉大学樱顶",
-                "elevation": 65,
-                "difficulty": 3
-            },
-            {
-                "name": "CP5-宋卿体育馆",
-                "code": "5",
-                "location": {"lat": 30.5920, "lng": 114.3030},
-                "address": "武汉大学文理学部",
-                "elevation": 35,
-                "difficulty": 2
-            },
-            {
-                "name": "CP6-万林艺术博物馆",
-                "code": "6",
-                "location": {"lat": 30.5890, "lng": 114.3010},
+                "location": {"lat": 30.5390, "lng": 114.3576},
                 "address": "武汉大学文理学部",
                 "elevation": 32,
                 "difficulty": 1
             },
             {
-                "name": "CP7-工学部操场",
-                "code": "7",
-                "location": {"lat": 30.5930, "lng": 114.3070},
-                "address": "武汉大学工学部",
-                "elevation": 25,
-                "difficulty": 1
+                "name": "CP4-老图书馆",
+                "code": "4",
+                "location": {"lat": 30.5380, "lng": 114.3610},
+                "address": "武汉大学樱顶",
+                "elevation": 45,
+                "difficulty": 2
             },
             {
-                "name": "CP8-医学部",
-                "code": "8",
-                "location": {"lat": 30.5980, "lng": 114.2930},
+                "name": "CP5-信息学部图书馆",
+                "code": "5",
+                "location": {"lat": 30.5314, "lng": 114.3557},
+                "address": "武汉大学信息学部",
+                "elevation": 35,
+                "difficulty": 2
+            },
+            {
+                "name": "CP6-医学部",
+                "code": "6",
+                "location": {"lat": 30.5566, "lng": 114.3505},
                 "address": "武汉大学医学部",
                 "elevation": 22,
                 "difficulty": 1
             },
             {
-                "name": "CP9-信息学部图书馆",
+                "name": "CP7-工学部",
+                "code": "7",
+                "location": {"lat": 30.5450, "lng": 114.3650},
+                "address": "武汉大学工学部",
+                "elevation": 25,
+                "difficulty": 1
+            },
+            {
+                "name": "CP8-樱花大道",
+                "code": "8",
+                "location": {"lat": 30.5385, "lng": 114.3620},
+                "address": "武汉大学文理学部",
+                "elevation": 40,
+                "difficulty": 2
+            },
+            {
+                "name": "CP9-宋卿体育馆",
                 "code": "9",
-                "location": {"lat": 30.5860, "lng": 114.3040},
-                "address": "武汉大学信息学部",
+                "location": {"lat": 30.5375, "lng": 114.3630},
+                "address": "武汉大学文理学部",
                 "elevation": 35,
                 "difficulty": 2
             },
             {
                 "name": "CP10-十八栋",
                 "code": "10",
-                "location": {"lat": 30.5940, "lng": 114.2980},
+                "location": {"lat": 30.5395, "lng": 114.3640},
                 "address": "武汉大学珞珈山",
-                "elevation": 55,
+                "elevation": 50,
                 "difficulty": 3
             }
         ]
@@ -224,8 +224,8 @@ class LuojiaExplorer:
         config = race_config[race_type]
         
         # 检查起点终点是否在校园内（简化检查）
-        start_loc = {"lat": 30.5850, "lng": 114.3050}  # 信息学部操场
-        end_loc = {"lat": 30.5885, "lng": 114.2990}  # 文理学部操场
+        start_loc = {"lat": 30.5300, "lng": 114.3557}  # 信息学部操场
+        end_loc = {"lat": 30.5370, "lng": 114.3600}  # 文理学部操场
         
         # 生成完整的路线控制点列表（包含起点和终点）
         full_route = [
@@ -366,7 +366,7 @@ class LuojiaExplorer:
         wuhan_university_poi = {
             "樱花大道": {
                 "name": "武汉大学樱花大道",
-                "location": "30.5900,114.3020",
+                "location": "30.5385,114.3620",
                 "clue": "寻找校园里最浪漫的花路，每年三月这里会变成粉色海洋。",
                 "address": "武汉大学文理学部",
                 "tasks": [
@@ -390,7 +390,7 @@ class LuojiaExplorer:
             },
             "樱顶": {
                 "name": "武汉大学樱顶",
-                "location": "30.5910,114.3000",
+                "location": "30.5380,114.3610",
                 "clue": "寻找樱花盛开时的最佳观赏点，俯瞰整个武大校园。",
                 "address": "武汉大学老图书馆旁",
                 "tasks": [
@@ -414,7 +414,7 @@ class LuojiaExplorer:
             },
             "老图书馆": {
                 "name": "武汉大学老图书馆",
-                "location": "30.5910,114.3000",
+                "location": "30.5380,114.3610",
                 "clue": "寻找最高学府的最高点，这里见证了武大的百年历史。",
                 "address": "武汉大学樱顶",
                 "tasks": [
@@ -438,7 +438,7 @@ class LuojiaExplorer:
             },
             "宋卿体育馆": {
                 "name": "武汉大学宋卿体育馆",
-                "location": "30.5920,114.3030",
+                "location": "30.5375,114.3630",
                 "clue": "寻找以民国大总统命名的体育馆，它曾是远东最好的体育馆之一。",
                 "address": "武汉大学文理学部",
                 "tasks": [
@@ -462,7 +462,7 @@ class LuojiaExplorer:
             },
             "十八栋": {
                 "name": "武汉大学十八栋",
-                "location": "30.5940,114.2980",
+                "location": "30.5395,114.3640",
                 "clue": "寻找民国时期教授们的居所，感受老武大的人文气息。",
                 "address": "武汉大学珞珈山",
                 "tasks": [
@@ -486,7 +486,7 @@ class LuojiaExplorer:
             },
             "万林艺术博物馆": {
                 "name": "武汉大学万林艺术博物馆",
-                "location": "30.5890,114.3010",
+                "location": "30.5390,114.3576",
                 "clue": "寻找校园里最现代的建筑，它的外形像一块飞来的石头。",
                 "address": "武汉大学文理学部",
                 "tasks": [
@@ -510,7 +510,7 @@ class LuojiaExplorer:
             },
             "郭沫若铜像": {
                 "name": "武汉大学郭沫若铜像",
-                "location": "30.5885,114.2990",
+                "location": "30.5370,114.3600",
                 "clue": "寻找著名文学家郭沫若先生的铜像，他曾担任武大校长。",
                 "address": "武汉大学文理学部",
                 "tasks": [
@@ -534,7 +534,7 @@ class LuojiaExplorer:
             },
             "工学部操场": {
                 "name": "武汉大学工学部操场",
-                "location": "30.5930,114.3070",
+                "location": "30.5450,114.3650",
                 "clue": "寻找工学部的运动天地，这里是工科学子挥洒汗水的地方。",
                 "address": "武汉大学工学部",
                 "tasks": [
